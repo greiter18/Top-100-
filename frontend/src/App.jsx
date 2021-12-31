@@ -1,6 +1,6 @@
 import React, {useState, useEffect}from 'react';
 import axios from 'axios';
-import WineIndex from './components/wineIndex'
+import WineModal from './components/wineModal'
 
 const App = () => {
   const [wineList, setWineList] = useState([]);
@@ -19,26 +19,43 @@ const App = () => {
     return axios.get(`/wines/`)
   };
 
+  const toggleModal = (wine) => {
+    // document.getElementById(`modal-background-${newId}`).classList.toggle('open-modal');  
+    document.getElementById(`modal-${wine.id}`).classList.toggle('open-modal');
+  }
+
   const setWine = wineList.map((wine, idx) => {
-    return <WineIndex wine={wine} key={wine.id} idx={idx}/>
-  })
+    return ( 
+      <tr className="mainWineRow">
+        <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{idx+1}</td>
+        <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}> <strong>{wine.winery_full} </strong> {wine.wine_full}</td>
+        <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{wine.vintage}</td>
+        <div className="modal" id={`modal-${wine.id}`} >
+          <WineModal wine={wine}/>
+        </div>
+      </tr>
+    )
+  });
 
   return (
-    <div>
-      {console.log(wineList)}
-      <h1>Top 100 </h1>
-      {/* <WineIndex wines={wineList}/> */}
-      <table>
-        <tbody>
-          <tr>
-            <th>Rank</th>
-            <th>Wine</th>
-            <th>Winery</th>
-            <th>Vintage</th>
-          </tr>
-          {setWine}
-        </tbody>
-      </table>
+    <div >
+      <span className="wineimg"></span>
+      <h1 className="top100">Our Top 100 Wines</h1>
+      <div className="wineSearch">
+        <input type="text" className="searchBar"placeholder="Find your Wine Bitch"/>
+      </div>
+      <div className="main">
+        <table className="table">
+          <tbody>
+            <tr>
+              <th>Rank</th>
+              <th>Wine</th>
+              <th>Vintage</th>
+            </tr>
+            {setWine}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
