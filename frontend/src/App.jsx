@@ -4,6 +4,7 @@ import WineModal from './components/wineModal'
 
 const App = () => {
   const [wineList, setWineList] = useState([]);
+  const [searchWine, setSearchWine] = useState('');
 
   useEffect(() => {
     getWine().then((res) => {
@@ -19,8 +20,7 @@ const App = () => {
     return axios.get(`/wines/`)
   };
 
-  const toggleModal = (wine) => {
-    // document.getElementById(`modal-background-${newId}`).classList.toggle('open-modal');  
+  const toggleModal = (wine) => {  
     document.getElementById(`modal-${wine.id}`).classList.toggle('open-modal');
   }
 
@@ -28,7 +28,7 @@ const App = () => {
     return ( 
       <tr className="mainWineRow">
         <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{idx+1}</td>
-        <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}> <strong>{wine.winery_full} </strong> {wine.wine_full}</td>
+        <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}><strong>{wine.winery_full}</strong>&emsp;{wine.wine_full}</td>
         <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{wine.vintage}</td>
         <div className="modal" id={`modal-${wine.id}`} >
           <WineModal wine={wine}/>
@@ -37,17 +37,32 @@ const App = () => {
     )
   });
 
+  const handleChange = (event) => {
+    setSearchWine(event.target.value)
+  }
+
+  const fetchWine = (wineName) => {
+    return axios.get(`wines/${wineName}`)
+  }
+
   return (
     <div >
-      <span className="wineimg"></span>
-      <h1 className="top100">Our Top 100 Wines</h1>
+      <div>
+        <h1 className="top100">Our Top 100 Wines</h1>
+      </div>
       <div className="wineSearch">
-        <input type="text" className="searchBar"placeholder="Find your Wine Bitch"/>
+        <form action="">
+          <label htmlFor="">
+            <input type="text" onChange={handleChange} className="searchBar" placeholder="Find your Wine"/>
+            <button className="button"><i class="fas fa-search"></i></button>
+          </label>
+        </form>
+        <span className="wineimg"></span>
       </div>
       <div className="main">
         <table className="table">
           <tbody>
-            <tr>
+            <tr className="topRow">
               <th>Rank</th>
               <th>Wine</th>
               <th>Vintage</th>

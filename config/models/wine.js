@@ -3,47 +3,49 @@ const Schema = mongoose.Schema;
 
 const WineSchema = new Schema({
   id: {
-    type: integer
+    type: String
   },
   winery_full: {
-    type: string
+    type: String
   },
   wine_full: {
-    type: string
+    type: String
   },
   note:{
-    type: string
+    type: String
   },
   taster_initials:{
-    type: string
+    type: String
   },
   color:{
-    type: string
+    type: String
   },
-
+  vintage:{
+    type: String
+  },
   country:{
-    type: string
+    type: String
   },
   region:{
-    type: string
+    type: String
   },
   score:{
-    type: integer
+    type: String
   },
   price:{
-    type: integer
+    type: String
   },
   alternate_bottle_size:{
-    type: string
+    type: String
   },
    issue_date:{
-    type: string
+    type: String
   },
    top100_year:{
-    type: integer
+    type: String
   },
     top100_rank: {
-    type: integer
+    type: String
   },
 });
 

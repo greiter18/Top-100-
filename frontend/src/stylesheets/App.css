@@ -1,32 +1,56 @@
 
 .wineimg{
-  background-image: url('wineimg2.jpg');
-  background-size: 75%;
-  background-position: center;
-  height: 7em;
-  display: flex;
+  
 }
 
 .top100{
   border-bottom: 1px black solid;
   display: flex;
   justify-content: center;
+  font-size: 43px;
 }
 .wineSearch{
+  background-image: url('wineimg2.jpg');
+  background-size: 106%;
+  background-position: center;
+  height: 15em;
+  display: flex;
   margin: auto;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
+.button{
+  z-index: 53;
+  position: relative;
+  left: 16%;
+  background: white;
+  border: none;
+  font-size: 19px;
+}
+
+.button:hover{
+  cursor: pointer
+}
+
 .searchBar{
   width: 36em;
   font-size: 22px;
   margin-bottom: 2em;
+  position: relative;
+  left: 20%;
 }
 
+.topRow{
+  border-bottom: 1px black solid;
+}
+
+
 .main{
-  /* background-color: rgb(242,223,209); */
+  /* background-image: url('wineback.jpg');
+  background-size: 100%; */
+  padding-top: 4em;
 }
 
 .table{
@@ -35,15 +59,17 @@
   margin: 0 auto;
   width: 65%;
   font-size: 22px;
+  position: relative;
+  left: 10%;
 }
 
 .table tr:nth-child(even) {
-  background-color: rgb(242,223,209);
+  background-color: rgb(242,223,209, .5);
 }
 
 .mainWineRow{
-  border-bottom: solid black 1px;
-  color: rgb(152, 25, 29)
+  /* border-bottom: solid black 1px; */
+  color: rgb(152, 25, 29);
 }
 /* .wineRow{
   border-bottom: solid black 1px;
@@ -51,19 +77,19 @@
 
 .modal{
   display: none;
-  background-color: rgb(251,251,231);;
-  width:45%;
+  background-color: rgb(242,223,209);;
+  width:22%;
   border-radius: 4px;
   margin: 0;
   position: fixed;
   top: 50%;
-  left: 70%;
+  left: 13%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border: rgb(50, 39, 19) 1px solid;
   border-radius: 11px;
   padding: 1em;
-  color: rgb(50, 39, 19);
+  color: rgb(161, 80, 82);
   box-shadow: 5px 10px rgb(50, 39, 19);
 }
 
