@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var request=require('request');
-const Region = require('../config/models/Region');
+const Region = require('../models/Region');
 
 //Index Route
 router.get(`/`, (req, res) => {

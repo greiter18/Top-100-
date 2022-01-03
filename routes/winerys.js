@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var request=require('request');
-const Winery = require('../config/models/Winery');
+const Winery = require('../models/Winery');
 
 //Index Route
 router.get(`/`, (req, res) => {

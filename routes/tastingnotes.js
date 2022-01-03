@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var request=require('request');
-const TastingNote = require('../config/models/TastingNote');
+const TastingNote = require('../models/TastingNote');
 
 //Index Route
 router.get(`/`, (req, res) => {
