@@ -11,7 +11,6 @@ router.get(`/`, (req, res) => {
   .catch(err => res.status(404))
 });
 
-
 //Show route
 router.get(`/:regionId`, (req, res) => {
   Region
@@ -20,6 +19,7 @@ router.get(`/:regionId`, (req, res) => {
   .catch(err => res.status(404))
 });
 
+//Create Route
 router.post(`/`, (req, res) => {
   const newRegion = new Region({
     region: req.body.region
@@ -30,9 +30,10 @@ router.post(`/`, (req, res) => {
   })
 });
 
+//Update Route 
 router.put('/:regionId', (req, res) => {
   let curRegion = Region.find({ id: req.params.noteId})
-  curRegion.region = req.params.region
+  curRegion.region = req.body.region
   curRegion.save()
   .then(region => {
     return res.json(region)

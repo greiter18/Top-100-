@@ -3,6 +3,7 @@ const router = express.Router();
 var request=require('request');
 const Winery = require('../config/models/winery');
 
+//Index Route
 router.get(`/`, (req, res) => {
   Winery
   .find()
@@ -18,7 +19,8 @@ router.get(`/:wineryId`, (req, res) => {
   .then(winery => {res.json(winery)})
   .catch(err => res.status(404))
 });
-//update route
+
+//Create route
 router.post(`/`, (req, res) => {
   const newWinery = new Winery({
     winery: req.body.winery
@@ -29,7 +31,7 @@ router.post(`/`, (req, res) => {
   })
 });
 
-//delete route
+//Update Route
 router.put('/:wineryId', (req, res) => {
   let currentWinery = Winery.find({ id: req.params.wineryId})
   currentWinery.winery = req.body.winery
@@ -40,6 +42,7 @@ router.put('/:wineryId', (req, res) => {
   .catch(err => res.status(400).json(err));
 });
 
+//Delete Route
 router.delete(``, (req, res) => {
   Winery.findByIdAndRemove(req.params.wineryId)
   .then(winery => {

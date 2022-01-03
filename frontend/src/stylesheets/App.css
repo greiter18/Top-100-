@@ -2,7 +2,6 @@
 .top{
   display: flex;
   justify-content: center;
-  padding-bottom: 2em;
 }
 
 .wineimg{
@@ -18,7 +17,7 @@
 }
 
 .top100{
-  font-size: 43px;
+  font-size: 55px;
   text-decoration: none;
   color: black;
 }
@@ -44,7 +43,8 @@
   right: 25%;
   height: 40px;
   font-size: 20px;
-  width: 280px
+  width: 280px;
+  top: 1.5em;
 }
 
 .searchBar input{

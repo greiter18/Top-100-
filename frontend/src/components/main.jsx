@@ -1,7 +1,6 @@
 import React, {useState, useEffect}from 'react';
 import axios from 'axios';
 import WineIndex from './wineIndex'
-import { Link } from 'react-router-dom'
 
 const Main = () => {
   const [wineList, setWineList] = useState([]);
@@ -36,7 +35,7 @@ const Main = () => {
           </label>
       </div>
       <div>
-        <Link to={`/`}className="top100">Our Top 100 Wines</Link>
+        <h1 className="top100">Our Top 100 Wines</h1>
       </div>
       </div>
       <span className="wineimg"></span>
