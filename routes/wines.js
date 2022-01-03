@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var request=require('request');
-const Wine = require('../config/models/wine');
+const Wine = require('../config/models/Wine');
 
 //Index Route
 router.get('/', (req, res) => {
