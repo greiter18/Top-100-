@@ -40,16 +40,34 @@
 }
 
 .searchBar{
-     position: relative;
-    right: 25%;
-    /* margin-top: 27%; */
-    height: 40px;
-    font-size: 20px;
-    width: 280px
+  position: relative;
+  right: 25%;
+  height: 40px;
+  font-size: 20px;
+  width: 280px
 }
 
 .searchBar input{
   height: 40px;
+}
+
+.table{
+  /* border-spacing: 0; */
+  border-collapse: collapse;
+  /* margin: 0 auto; */
+  width: 59%;
+  font-size: 22px;
+  position: relative;
+  left: 30%;
+  text-align: left;
+}
+
+.table thead tr{
+  text-align: left;
+}
+
+.table tr:nth-child(even) {
+  background-color: rgb(242,223,209, .5);
 }
 
 .topRow{
@@ -57,9 +75,8 @@
 }
 
 .wineColumn{
-  position: relative;
-  right: 37%;
-  }
+ padding-left: 2em;
+}
 
   #winenamecolumn{
     padding-left: 4%;
@@ -67,32 +84,14 @@
 
 
 .main{
-  /* background-image: url('wineback.jpg');
-  background-size: 100%; */
   padding-top: 4em;
 }
 
-.table{
-  border-spacing: 0;
-  border-collapse: collapse;
-  margin: 0 auto;
-  width: 59%;
-  font-size: 22px;
-  position: relative;
-  left: 10%;
-}
 
-.table tr:nth-child(even) {
-  background-color: rgb(242,223,209, .5);
-}
 
 .mainWineRow{
-  /* border-bottom: solid black 1px; */
   color: rgb(152, 25, 29);
 }
-/* .wineRow{
-  border-bottom: solid black 1px;
-} */
 
 .modal{
   display: none;
@@ -119,7 +118,6 @@
   bottom: 0;
   right: 0;
   left: 0;
-  /* background: rgba(0, 0, 0, 0.4);*/
   z-index: 10; 
 }
 

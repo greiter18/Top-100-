@@ -14,7 +14,6 @@ router.get(`/`, (req, res) => {
 
 //Show route
 router.get(`/:noteId`, (req, res) => {
-  // console.log('res----------',res)
   TastingNote
   .find({ _id: req.params.noteId})
   .then(notes => res.json(notes))

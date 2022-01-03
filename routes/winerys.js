@@ -18,21 +18,22 @@ router.get(`/:wineryId`, (req, res) => {
   .then(winery => {res.json(winery)})
   .catch(err => res.status(404))
 });
-
+//update route
 router.post(`/`, (req, res) => {
   const newWinery = new Winery({
-    region: req.body.winery
+    winery: req.body.winery
   })
-  newRegion.save()
-  .then(region => {
-    return res.json(region)
+    newWinery.save()
+  .then(winery => {
+    return res.json(winery)
   })
 });
 
+//delete route
 router.put('/:wineryId', (req, res) => {
-  let curWinery = Winery.find({ id: req.params.wineryId})
-  curWinery.winery = req.body.winery
-  curWinery.save()
+  let currentWinery = Winery.find({ id: req.params.wineryId})
+  currentWinery.winery = req.body.winery
+  currentWinery.save()
   .then(winery => {
     return res.json(winery)
   })
