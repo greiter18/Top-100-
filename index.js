@@ -16,8 +16,8 @@ const region = require("./routes/regions")
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello the one and only Gabriel Reiter")})
+// app.get("/", (req, res) => {
+//   res.send("Hello the one and only Gabriel Reiter")})
 
 app.use('/wines', wines)
 app.use('/winery', winery)
