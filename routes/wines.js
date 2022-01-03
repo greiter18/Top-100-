@@ -18,6 +18,8 @@ const Wine = require('../config/models/wine');
 
 router.get('/', (req, res) => {
   Wine.find()
+  // .sort({top100_rank: (a,b) => a - b}) 
+  .sort({top100_rank: 1})
   .then(wine => res.json(wine))
   .catch(err => res.status(404))
   
@@ -32,8 +34,8 @@ router.get('/:wineId', (req, res) => {
 
 router.get('/:wineName',(req, res) =>{
   Wine
-  .find({winery_full: req.params.body})
-  .then((winery) => {res.json(winery)})
+  .find({winery_full: req.params.winename})
+  .then((wine) => {res.json(wine)})
 })
 
 module.exports = router;

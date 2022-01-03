@@ -33,10 +33,10 @@ const WineSchema = new Schema({
     ref: 'regions'
   },
   score:{
-    type: String
+    type: String //Number
   },
   price:{
-    type: String
+    type: String //Number
   },
   alternate_bottle_size:{
     type: String
@@ -45,10 +45,10 @@ const WineSchema = new Schema({
     type: String
   },
    top100_year:{
-    type: String
+    type: String //Number
   },
     top100_rank: {
-    type: String
+    type: String //Number
   },
 });
 

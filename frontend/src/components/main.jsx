@@ -1,7 +1,7 @@
 import React, {useState, useEffect}from 'react';
 import axios from 'axios';
-import WineModal from './wineModal'
 import WineIndex from './wineIndex'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
   const [wineList, setWineList] = useState([]);
@@ -25,41 +25,37 @@ const Main = () => {
   //   return axios.get(`wines/${wineName}`)
   // }
 
-
-  // const toggleModal = (wine) => {  
-  //   document.getElementById(`modal-${wine.id}`).classList.toggle('open-modal');
-  // }
-
+  let filteredWine = wineList.filter(wine => {
+     if(searchWine == ''){
+       return wine;
+     } else if (
+        wine.wine_full.toLowerCase().includes(searchWine.toLowerCase())) {
+        return wine;
+      }
+  })
+    
   const setWine = wineList.map((wine, idx) => {
-    // let winery = axios.get(`winery/${wine.id}`)
-
     return ( 
-      <WineIndex wine={wine} idx={idx}/>
-      // <tr className="mainWineRow">
-      //   <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{idx+1}</td>
-      //   <td className="wineRow" id="winenamecolumn" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}><strong>{wine.winery_full}</strong>&emsp;{wine.wine_full}</td>
-      //   <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{wine.vintage}</td>
-      //   <div className="modal" id={`modal-${wine.id}`} >
-      //     <WineModal wine={wine}/>
-      //   </div>
-      // </tr>
+      <WineIndex wine={wine} idx={idx} search={searchWine} key={idx}/>
     )
   });
 
  
   return (
     <div >
+      {console.log('searchbox', searchWine)}
+      {console.log('filtered state++++++',filteredWine)}
       <div className="top">
         <div className="wineSearch">
-        <form action="">
+        {/* <form action=""> */}
           <label htmlFor="">
-            <input type="text" onChange={handleChange} className="searchBar" placeholder="Find your Wine"/>
-            <button className="button"><i class="fas fa-search"></i></button>
+            <input type="text" onChange={handleChange} className="searchBar" placeholder="Find your Wine..."/>
+            {/* <button className="button"><i class="fas fa-search"></i></button> */}
           </label>
-        </form>
+        {/* </form> */}
       </div>
       <div>
-        <h1 className="top100">Our Top 100 Wines</h1>
+        <Link to={`/`}className="top100">Our Top 100 Wines</Link>
       </div>
       </div>
       <span className="wineimg"></span>

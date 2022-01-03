@@ -6,9 +6,7 @@ const WineModal = ({wine, winery, idx}) => {
 
   useEffect(() => {
     getNote(wine)
-    .then(res => {
-      console.log(res)
-      setNotes(res.data[0].note)})
+    .then(res => {setNotes(res.data[0].note)})
     .catch(err => console.log(err))
   },[]);
 

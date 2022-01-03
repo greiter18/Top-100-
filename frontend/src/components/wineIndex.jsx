@@ -2,8 +2,9 @@ import React, {useState, useEffect}from 'react';
 import WineModal from './wineModal';
 import axios from 'axios';
 
-const WineIndex =({wine, idx}) => {
+const WineIndex =({wine, idx, search}) => {
   let [winery, setWinery] = useState('');
+  let [filteredWine, setFilteredWine] = useState('');
 
   useEffect(() => {
     getWinery(wine)
@@ -18,16 +19,32 @@ const WineIndex =({wine, idx}) => {
   const toggleModal = (wine) => {  
     document.getElementById(`modal-${wine.id}`).classList.toggle('open-modal');
   };
+      
+  // let filterList = (winery, wine) => {
+  //   if(search === ''){
+  //     return wine
+  //   } else if(winery.toLowerCase().includes(search.toLowerCase())){
+  //     return 
+  //   }
+  // }
+
+    // winery.filter(winer => {
+    //   if(search === ''){
+    //     return wine;
+    //   }
+    // })
 
   return(
     <tr className="mainWineRow">
-      <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{idx+1}</td>
+      {/* {console.log('wine----------',wineSearch)} */}
+      <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{wine.top100_rank}</td>
       <td className="wineRow" id="winenamecolumn" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}><strong>{winery}</strong>&emsp;{wine.wine_full}</td>
       <td className="wineRow" onMouseOver={() => toggleModal(wine)} onMouseOut={() => toggleModal(wine)}>{wine.vintage}</td>
       <div className="modal" id={`modal-${wine.id}`} >
         <WineModal wine={wine} winery={winery} idx={idx}/>
       </div>
     </tr>
+    // {filterList}
   )
 }
 

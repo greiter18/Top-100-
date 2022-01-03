@@ -2,6 +2,7 @@
 .top{
   display: flex;
   justify-content: center;
+  padding-bottom: 2em;
 }
 
 .wineimg{
@@ -18,8 +19,13 @@
 
 .top100{
   font-size: 43px;
+  text-decoration: none;
+  color: black;
 }
 
+.wineSearch{
+  margin-top: 1%
+}
 
 .button{
   position: relative;
@@ -34,9 +40,16 @@
 }
 
 .searchBar{
-  position: relative;
-  right: 25%;
-  margin-top: 27%;
+     position: relative;
+    right: 25%;
+    /* margin-top: 27%; */
+    height: 40px;
+    font-size: 20px;
+    width: 280px
+}
+
+.searchBar input{
+  height: 40px;
 }
 
 .topRow{
@@ -45,7 +58,7 @@
 
 .wineColumn{
   position: relative;
-  right: 35%;
+  right: 37%;
   }
 
   #winenamecolumn{
