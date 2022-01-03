@@ -5,11 +5,12 @@ import { HashRouter } from 'react-router-dom';
 
 const App = () => (
   <div>
-     <HashRouter>
+     {/* <HashRouter>
       <Routes>
         <Route exact path="/" element={<Main/>}/>
       </Routes>
-      </HashRouter>
+      </HashRouter> */}
+      <Main/>
   </div>
 )
 
