@@ -33,8 +33,3 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server is HOT"));
-
-//connect to the database
-//iterate over the data and//
-//each iterating to a db create and save iterating
-//seed file - standalone file 
