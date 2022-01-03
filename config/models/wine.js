@@ -6,13 +6,15 @@ const WineSchema = new Schema({
     type: String
   },
   winery_full: {
-    type: String
+    type: String,
+    ref: 'winery_fulls'
   },
   wine_full: {
     type: String
   },
   note:{
-    type: String
+    type: String,
+    ref: 'tastingnotes'
   },
   taster_initials:{
     type: String
@@ -27,7 +29,8 @@ const WineSchema = new Schema({
     type: String
   },
   region:{
-    type: String
+    type: String,
+    ref: 'regions'
   },
   score:{
     type: String

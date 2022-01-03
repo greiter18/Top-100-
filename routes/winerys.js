@@ -13,15 +13,15 @@ router.get(`/`, (req, res) => {
 
 //Show route
 router.get(`/:wineryId`, (req, res) => {
-  Winery
-  .find({ id: req.params.wineryId})
-  .then(winery => res.json(winery))
+  Winery 
+  .find({ _id: req.params.wineryId})
+  .then(winery => {res.json(winery)})
   .catch(err => res.status(404))
 });
 
 router.post(`/`, (req, res) => {
-  const newRegion = new Winery({
-    region: req.body.region
+  const newWinery = new Winery({
+    region: req.body.winery
   })
   newRegion.save()
   .then(region => {
@@ -31,11 +31,12 @@ router.post(`/`, (req, res) => {
 
 router.put('/:wineryId', (req, res) => {
   let curWinery = Winery.find({ id: req.params.wineryId})
-  curWinery.winery = req.params.winery
+  curWinery.winery = req.body.winery
   curWinery.save()
   .then(winery => {
     return res.json(winery)
   })
+  .catch(err => res.status(400).json(err));
 });
 
 router.delete(``, (req, res) => {

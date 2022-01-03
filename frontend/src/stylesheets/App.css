@@ -1,16 +1,11 @@
 
-.wineimg{
-  
-}
-
-.top100{
-  border-bottom: 1px black solid;
+.top{
   display: flex;
   justify-content: center;
-  font-size: 43px;
 }
-.wineSearch{
-  background-image: url('wineimg2.jpg');
+
+.wineimg{
+   background-image: url('wineimg2.jpg');
   background-size: 106%;
   background-position: center;
   height: 15em;
@@ -21,13 +16,17 @@
   justify-content: center;
 }
 
+.top100{
+  font-size: 43px;
+}
+
+
 .button{
-  z-index: 53;
   position: relative;
-  left: 16%;
+  left: -41%;
   background: white;
   border: none;
-  font-size: 19px;
+  font-size: 11px;
 }
 
 .button:hover{
@@ -35,16 +34,23 @@
 }
 
 .searchBar{
-  width: 36em;
-  font-size: 22px;
-  margin-bottom: 2em;
   position: relative;
-  left: 20%;
+  right: 25%;
+  margin-top: 27%;
 }
 
 .topRow{
   border-bottom: 1px black solid;
 }
+
+.wineColumn{
+  position: relative;
+  right: 35%;
+  }
+
+  #winenamecolumn{
+    padding-left: 4%;
+  }
 
 
 .main{
@@ -57,7 +63,7 @@
   border-spacing: 0;
   border-collapse: collapse;
   margin: 0 auto;
-  width: 65%;
+  width: 59%;
   font-size: 22px;
   position: relative;
   left: 10%;

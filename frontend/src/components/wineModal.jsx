@@ -1,12 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect}from 'react';
+import axios from 'axios';
 
-const WineModal = ({wine, idx}) => {
+const WineModal = ({wine, winery, idx}) => {
+  let [notes, setNotes] =useState('');
+
+  useEffect(() => {
+    getNote(wine)
+    .then(res => {
+      console.log(res)
+      setNotes(res.data[0].note)})
+    .catch(err => console.log(err))
+  },[]);
+
+  const getNote = (wine) => {
+    return axios.get(`/tastingnote/${wine.note}`)
+  }
+
   return( 
     <div className="wineModal">
-      {wine.winery_full}
+      <strong>{winery}</strong>
       <br/>
-      Tasting Notes 
-      <br />{wine.note}
+      <strong>Tasting Notes :</strong> 
+      <br/>
+      {notes}
     </div>
   )
 }

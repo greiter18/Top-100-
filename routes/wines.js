@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
   Wine.find()
   .then(wine => res.json(wine))
   .catch(err => res.status(404))
+  
 });
 
 router.get('/:wineId', (req, res) => {
@@ -30,7 +31,9 @@ router.get('/:wineId', (req, res) => {
 });
 
 router.get('/:wineName',(req, res) =>{
-
+  Wine
+  .find({winery_full: req.params.body})
+  .then((winery) => {res.json(winery)})
 })
 
 module.exports = router;
